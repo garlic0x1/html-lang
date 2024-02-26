@@ -1,0 +1,11 @@
+<defun> factorial <nil> n acc </nil>
+  <if> <equal> n 0 </equal>
+    acc
+    <factorial>
+      <dec> n </dec>
+      <times> n acc </times>
+    </factorial>
+  </if>
+</defun>
+
+<factorial> 5 1 </factorial>
