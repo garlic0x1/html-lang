@@ -1,6 +1,7 @@
 (defpackage :html-lang
   (:use :cl)
-  (:import-from :alexandria :if-let))
+  (:import-from :alexandria :if-let)
+  (:export :eval-html :eval-html-file))
 (in-package :html-lang)
 
 ;; some renamed runtime funcs

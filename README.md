@@ -17,7 +17,7 @@ HTML is a programming language:
 ```
 
 ```lisp
-(html-lang:eval-html-file "path-to-html")
+(eval-html-file "path-to-html")
 ```
 
 ```result

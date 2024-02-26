@@ -3,5 +3,4 @@
   :license "MIT"
   :description "HTML is a programming language."
   :depends-on (:alexandria :xmls)
-  :components ((:module "src"
-                :components ((:file "core")))))
+  :components ((:file "core")))
