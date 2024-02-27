@@ -1,0 +1,34 @@
+<ql:quickload>
+  <list>
+    :usocket
+    :alexandria
+  </list>
+</ql:quickload>
+
+<defun> accept-conn <nil> socket </nil>
+	<let>
+	  <nil> <nil>
+	      conn
+        <usocket:socket-accept>
+          socket :element-type <quote> character </quote>
+        </usocket:socket-accept>
+	  </nil> </nil>
+    <format>
+      <usocket:socket-stream> conn </usocket:socket-stream>
+      "Hello world~%"
+    </format>
+    <force-output>
+      <usocket:socket-stream> conn </usocket:socket-stream>
+    </force-output>
+    <usocket:socket-close> conn </usocket:socket-close>
+	</let>
+</defun>
+
+<let>
+  <nil> <nil>
+      socket <usocket:socket-listen> "127.0.0.1" 1337 </usocket:socket-listen>
+  </nil> </nil>
+  <loop>
+    <accept-conn> socket </accept-conn>
+  </loop>
+</let>

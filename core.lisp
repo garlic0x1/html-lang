@@ -19,6 +19,9 @@
             (setf new (append new (list c))))
           (setf new (append new (list c)))))
     (setf (xmls:node-children node) new)
+    (when (xmls:node-ns node)
+      (setf (xmls:node-name node)
+            (format nil "~a::~a" (xmls:node-ns node) (xmls:node-name node))))
     node))
 
 (defmethod eval-html* (obj)
@@ -32,7 +35,8 @@
 
 (defun eval-html (string)
   (let ((node (xmls:parse string)))
-    (eval (eval-html* node))))
+    (eval
+     (eval-html* node))))
 
 (defun eval-html-file (filename)
   (eval-html (format nil "<progn> ~a </progn>" (uiop:read-file-string filename))))
